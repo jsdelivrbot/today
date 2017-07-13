@@ -5,7 +5,7 @@ import * as actions from '../actions';
 class Settings extends Component {
   render() {
     return (
-      <div>settings</div>
+      <div>Pick settings</div>
     )
   }
 }

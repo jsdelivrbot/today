@@ -2,7 +2,8 @@ import{
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  FETCH_MESSAGE
+  FETCH_MESSAGE,
+  FETCH_USERINFO
 } from '../actions/types';
 
 export default function(state = {}, action) {
@@ -16,7 +17,9 @@ export default function(state = {}, action) {
     case FETCH_MESSAGE:
       return { ...state, message: action.payload };
     case 'clear_messages':
-      return { ...state, error: '' }
+      return { ...state, error: '' };
+    case FETCH_USERINFO:
+      return { ...state, user: action.user, progress: action.progress, times: action.times };
   }
   return state;
 }

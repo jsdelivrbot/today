@@ -4,15 +4,17 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  FETCH_MESSAGE
+  FETCH_MESSAGE,
+  FETCH_USERINFO
  } from './types';
 
+
 const ROOT_URL = 'http://localhost:3090';
+
 
 export function signinUser({ email, password }) {
 
   return function(dispatch) {
-
     axios.post(`${ROOT_URL}/signin`, { email, password })
     .then(response => {
       dispatch({ type: AUTH_USER});
@@ -23,7 +25,6 @@ export function signinUser({ email, password }) {
       dispatch(authError('Bad Login Info'));
     });
   }
-
 }
 
 
@@ -60,10 +61,26 @@ export function fetchMessage() {
     axios.get(ROOT_URL, {
       headers: { authorization: localStorage.getItem('token') }
     })
-    .then(response => {
+    .then( response => {
       dispatch({
         type: FETCH_MESSAGE,
         payload: response.data.message
+      });
+    });
+  }
+}
+
+export function fetchUserInfo() {
+  return function(dispatch) {
+    axios.get(ROOT_URL, {
+      headers: { authorization: localStorage.getItem('token') }
+    })
+    .then( response => {
+      dispatch({
+        type: FETCH_USERINFO,
+        user: response.data.user,
+        progress: response.data.progress,
+        times: response.data.times
       });
     });
   }
