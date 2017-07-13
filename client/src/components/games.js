@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import * as actions from '../actions';
 
-class Settings extends Component {
+class Games extends Component {
   render() {
     return (
-      <div>Pick settings</div>
+      <div>Pick your game</div>
     )
   }
 }
 
 export default reduxForm({
-  form: 'settings',
+  form: 'games',
   fields: []
-})(Settings);
+})(Games);

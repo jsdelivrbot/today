@@ -8,7 +8,7 @@ class Header extends Component {
     if (this.props.authenticated) {
       return [
         <li className="nav-item" key={1}>
-          <Link className="nav-link" to="/settings">Games</Link>
+          <Link className="nav-link" to="/games">Games</Link>
         </li>,
         <li className="nav-item" key={2}>
           <Link className="nav-link" to="/signout">Sign out</Link>
@@ -29,7 +29,6 @@ class Header extends Component {
   render() {
     console.log('props', this.props)
     console.log('context', this.context)
-    console.log('state', this.props.state)
     return (
       <nav className="navbar navbar-light">
         <Link to='/' className="navbar-brand">FretZila</Link>
@@ -43,8 +42,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated,
-    state: state
+    authenticated: state.auth.authenticated
   };
 }
 

@@ -13,7 +13,7 @@ import Signup from './components/auth/signup';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
 import Home from './components/home';
-import Settings from './components/settings';
+import Games from './components/games';
 import Game from './components/game';
 import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
@@ -47,7 +47,7 @@ ReactDOM.render(
         <Route path="signout" component={Signout} />
         <Route path="signup" component={Signup} onLeave={clearMessages} />
         <Route path="home" component={Home} onEnter={requireAuth} />
-        <Route path="settings" component={RequireAuth(Settings)} />
+        <Route path="games" component={RequireAuth(Games)} />
         <Route path="game" component={RequireAuth(Game)} />
       </Route>
     </Router>
