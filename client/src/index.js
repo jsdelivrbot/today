@@ -34,7 +34,6 @@ const requireAuth = (nextState, replace) => {
 }
 
 const clearMessages = (nextState) => {
-  console.log('getting cleared out')
   store.dispatch({ type: 'clear_messages' })
 }
 

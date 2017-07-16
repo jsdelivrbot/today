@@ -19,6 +19,7 @@ class Signin extends Component {
   }
 
   render() {
+    console.log("signin props", this.props);
 
     const { handleSubmit, fields: { email, password }} = this.props;
 
