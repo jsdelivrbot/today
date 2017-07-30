@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 
 export default class String extends Component {
-  constructor(props){
-    super(props);
-      this.state = {
-        value: "a"
-      }
+  handleChange(e) {
+    this.props.changeTuning(e.target.value, this.props.index)
   }
-
-  tune = (e) => {
-    this.setState({value: e.target.value});
-  };
 
   render() {
     return (
-      <select value={this.state.value} onChange={this.tune.bind(this)}>
+      <select name="tune" value={this.props.value} onChange={this.handleChange.bind(this)}>
         <option value="a">A</option>
         <option value="a#">A#</option>
         <option value="b">B</option>

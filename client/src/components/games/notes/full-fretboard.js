@@ -7,18 +7,23 @@ class FullFretboard extends Component {
     this.state = {
       tuning: ["e", "a", "d", "g", "b", "e"]
     };
+    this.changeTuning = this.changeTuning.bind(this)
   }
 
-
+  changeTuning(newTune, i) {
+    const newTuning = this.state.tuning
+    newTuning[i] = newTune
+    this.setState({ tuning: newTuning })
+  }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <div>Fill in the Fretboard</div>
-
-        <Tuner />
-
+        <Tuner
+          tuning={this.state.tuning}
+          changeTuning={this.changeTuning}
+        />
         <input
           className="FullFretboardAnswer"
           type="text"
