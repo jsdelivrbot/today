@@ -8,16 +8,16 @@ import { createLogger } from 'redux-logger'
 
 const logger = createLogger({ collapsed: true })
 
+import RequireAuth from './components/auth/require_auth';
+import reducers from './reducers';
 import App from './components/app';
 import Signup from './components/auth/signup';
 import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
-import Home from './components/home';
-import Games from './components/games';
-import Game from './components/game';
-import RequireAuth from './components/auth/require_auth';
-import Welcome from './components/welcome';
-import reducers from './reducers';
+import Welcome from './components/pages/welcome';
+import Home from './components/pages/home';
+import Games from './components/pages/games';
+import FullFretboard from './components/games/notes/full-fretboard';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk, logger)(createStore);
 const store = createStoreWithMiddleware(reducers,
@@ -47,7 +47,7 @@ ReactDOM.render(
         <Route path="signup" component={Signup} onLeave={clearMessages} />
         <Route path="home" component={Home} onEnter={requireAuth} />
         <Route path="games" component={RequireAuth(Games)} />
-        <Route path="game" component={RequireAuth(Game)} />
+        <Route path="full-fretboard" component={RequireAuth(FullFretboard)} />
       </Route>
     </Router>
   </Provider>

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
 
+
+
   renderLinks() {
     if (this.props.authenticated) {
       return [
@@ -33,7 +35,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log('header props', this.props)
     return (
       <nav className="navbar navbar-light">
         <ul className="nav navbar-nav">

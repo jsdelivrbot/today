@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import * as actions from '../actions';
+import * as actions from '../../actions';
 
 class Home extends Component {
   componentWillMount(){
@@ -9,7 +9,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log("home props", this.props);
     return (
       <div>
         {this.props.user}

@@ -8,6 +8,8 @@ const userSchema = new Schema({
   password: String
 });
 
+
+
 //encrypt password
 //before saving a model, this pre function runs
 userSchema.pre('save', function(next) {

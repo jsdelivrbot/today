@@ -5,7 +5,6 @@ export default class App extends Component {
 
 
   render() {
-    console.log("app props", this.props);
     return (
       <div>
         <Header pathname={this.props.children.props.route.path} />
